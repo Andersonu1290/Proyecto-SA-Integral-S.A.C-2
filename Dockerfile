@@ -1,14 +1,12 @@
-# Usamos PHP 8.3 con Apache
 FROM php:8.3-apache
 
-# Habilitar mod_rewrite de forma definitiva
+# Habilitar mod_rewrite
 RUN a2enmod rewrite
 
-# Ajustar la configuración global de Apache para permitir TODO en /var/www/html
-RUN echo "<Directory /var/www/html>\n\tOptions Indexes FollowSymLinks\n\tAllowOverride All\n\tRequire all granted\n</Directory>" > /etc/apache2/conf-available/allow-override.conf \
-    && a2enconf allow-override
+# 🔥 SOLUCIÓN NUCLEAR: Modificar directamente el archivo principal de Apache
+RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 
-# Instalar dependencias para Cockpit
+# Instalamos extensiones y limpiamos caché
 RUN apt-get update && apt-get install -y \
     libsqlite3-dev \
     libfreetype6-dev \
@@ -19,9 +17,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd pdo pdo_sqlite zip \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar el proyecto
+# Copiamos los archivos
 COPY . /var/www/html/
 
-# Permisos para Apache
+# Permisos
 RUN chown -R www-data:www-data /var/www/html/
-RUN chmod -R 775 /var/www/html/admin/storage

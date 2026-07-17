@@ -4,16 +4,16 @@ Options -Indexes
     RewriteEngine On
     RewriteBase /
 
-    # 🔥 IGNORAR LA CARPETA ADMIN POR COMPLETO
-    # Si la URL empieza por /admin, detener la reescritura aquí mismo
-    RewriteRule ^admin/ - [L]
+    # 🔥 1. PROTEGER COCKPIT: Si la URL empieza por /admin, ignorar el resto de reglas
+    RewriteCond %{REQUEST_URI} ^/admin [NC]
+    RewriteRule ^ - [L]
 
-    # Si es un archivo o directorio que existe en el frontend, déjalo pasar
+    # 2. Archivos reales (CSS, JS, imágenes del frontend)
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
-    # Todo lo demás (rutas de tu SPA) se redirige al index.html
+    # 3. Todo lo demás va al index.html de tu frontend
     RewriteRule ^(.*)$ /index.html [L] 
 </IfModule>
 

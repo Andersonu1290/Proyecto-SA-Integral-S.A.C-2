@@ -1,14 +1,14 @@
-# CORREGIDO: Subir a PHP 8.3 (Requisito mínimo del sistema)
+# Usamos PHP 8.3 con Apache
 FROM php:8.3-apache
 
-# Habilitamos mod_rewrite de Apache
+# Habilitar mod_rewrite de forma definitiva
 RUN a2enmod rewrite
 
-# 🔥 CRUCIAL: Habilitar AllowOverride para que Apache lea tu .htaccess y el de la carpeta /admin
-RUN echo "<Directory /var/www/html>\n\tAllowOverride All\n</Directory>" > /etc/apache2/conf-available/allow-override.conf \
+# Ajustar la configuración global de Apache para permitir TODO en /var/www/html
+RUN echo "<Directory /var/www/html>\n\tOptions Indexes FollowSymLinks\n\tAllowOverride All\n\tRequire all granted\n</Directory>" > /etc/apache2/conf-available/allow-override.conf \
     && a2enconf allow-override
 
-# Instalamos extensiones (SQLite, GD, ZIP) y limpiamos caché
+# Instalar dependencias para Cockpit
 RUN apt-get update && apt-get install -y \
     libsqlite3-dev \
     libfreetype6-dev \
@@ -19,8 +19,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd pdo pdo_sqlite zip \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiamos los archivos de tu proyecto
+# Copiar el proyecto
 COPY . /var/www/html/
 
-# CORREGIDO: Asegurar permisos en TODA la raíz para evitar bloqueos en storage y config
+# Permisos para Apache
 RUN chown -R www-data:www-data /var/www/html/
+RUN chmod -R 775 /var/www/html/admin/storage

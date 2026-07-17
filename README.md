@@ -1,49 +1,179 @@
-# Proyecto SA Integral S.A.C. - Panel de Administración [cite: 1]
+<div align="center">
 
-## Descripción
-Este repositorio contiene el código fuente del panel de administración (frontend) del sistema web. El proyecto se centra en el diseño de una solución para la gestión eficiente de ventas e inventarios en bodegas, aplicando metodologías de sistemas para optimizar los procesos operativos y administrativos.
+# 🏪 SA Integral S.A.C.
+### Sistema de Gestión de Ventas e Inventario
 
-## Características Principales
-* **Gestión de Inventarios y Ventas:** Módulo dedicado al control de flujo de productos, stock en bodega y transacciones comerciales.
-* **Interfaz de Usuario Frontend:** Panel administrativo con menús, layouts y footers estructurados para una navegación fluida.
-* **Arquitectura Moderna:** Construido utilizando el framework Angular, implementando una arquitectura basada en componentes standalone para garantizar un código modular, mantenible y escalable.
+Sistema web desarrollado para optimizar la administración de ventas, productos e inventario mediante **Cockpit CMS**, utilizando **PHP, SQLite, Docker y tecnologías web**.
 
-## Estructura del Directorio Administrativo (`/admin/`) [cite: 1]
-El proyecto contiene los siguientes archivos de configuración y documentación detectados [cite: 1]:
+![HTML](https://img.shields.io/badge/Frontend-HTML5-orange?logo=html5)
+![CSS](https://img.shields.io/badge/CSS3-blue?logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow?logo=javascript)
+![PHP](https://img.shields.io/badge/Cockpit%20CMS-PHP-777BB4?logo=php)
+![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite)
+![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-* **Configuración del entorno:**
-  * `.editorconfig`: Mantiene la consistencia del estilo de codificación entre el equipo. [cite: 1]
-  * `.gitignore`: Especifica los archivos intencionalmente sin seguimiento que Git debe ignorar. [cite: 1]
-  * `.npmrc`: Configuración local para el gestor de paquetes de Node. [cite: 1]
-  * `.htaccess`: Configuración a nivel de directorio para el servidor web (Apache), útil para el enrutamiento de la aplicación SPA. [cite: 1]
+</div>
 
-* **Documentación y Normativas:**
-  * `AGENTS.md`: Información sobre los agentes o servicios involucrados. [cite: 1]
-  * `CHANGELOG.md`: Registro estructurado de los cambios, actualizaciones y commits realizados en el repositorio. [cite: 1]
-  * `SECURITY.md`: Directrices y políticas de seguridad del proyecto. [cite: 1]
-  * `LICENSE`: Archivo de licencia del código fuente. [cite: 1]
-  * `admin.zip`: Respaldo comprimido del directorio. [cite: 1]
+---
 
-## Requisitos Previos
-* Node.js y npm instalados.
-* Angular CLI instalado globalmente (`npm install -g @angular/cli`).
+# 📖 Descripción
 
-## Instalación y Despliegue
+**SA Integral S.A.C.** es un sistema web diseñado para optimizar la gestión administrativa de pequeñas y medianas bodegas.
 
-1. Clonar el repositorio.
-2. Navegar al directorio de administración:
-   ```bash
-   cd Proyecto-SA-Integral-S.A.C-2/admin
-   ```
-3. Instalar las dependencias del proyecto:
-   ```bash
-   npm install
-   ```
-4. Iniciar el servidor de desarrollo:
-   ```bash
-   ng serve
-   ```
-5. Abrir el navegador e ingresar a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
+Permite administrar productos, inventario y ventas mediante una interfaz intuitiva construida sobre **Cockpit CMS**, facilitando el control de la información, reduciendo procesos manuales y mejorando la organización operativa.
 
-## Equipo de Desarrollo
-Proyecto académico y de desarrollo de software estructurado por Anderson y equipo colaborador.
+Este proyecto fue desarrollado con fines académicos como aplicación práctica de metodologías de análisis y diseño de sistemas.
+
+---
+
+# ✨ Características
+
+- 📦 Gestión de productos
+- 📊 Control de inventario
+- 💰 Registro de ventas
+- 🔍 Consulta de información
+- ⚡ Interfaz web ligera e intuitiva
+- 🗄️ Base de datos SQLite
+- 🐳 Despliegue mediante Docker
+- ☁️ Compatible con Render
+
+---
+
+# 🛠 Tecnologías
+
+| Tecnología | Descripción |
+|------------|-------------|
+| HTML5 | Estructura de la interfaz |
+| CSS3 | Diseño y estilos |
+| JavaScript | Funcionalidad del cliente |
+| PHP | Backend del sistema |
+| Cockpit CMS | Gestión del contenido |
+| SQLite | Base de datos |
+| Docker | Contenerización y despliegue |
+
+---
+
+# 📂 Estructura del Proyecto
+
+```text
+admin/
+│
+├── assets/             # Recursos estáticos
+├── config/             # Configuración del sistema
+├── modules/            # Módulos de Cockpit CMS
+├── storage/            # Base de datos y archivos persistentes
+│
+├── Dockerfile
+├── .htaccess
+├── .gitignore
+├── CHANGELOG.md
+├── LICENSE
+└── SECURITY.md
+```
+
+---
+
+# 🚀 Instalación
+
+### Clonar el repositorio
+
+```bash
+git clone https://github.com/usuario/repositorio.git
+```
+
+### Ingresar al proyecto
+
+```bash
+cd admin
+```
+
+---
+
+# 🐳 Ejecución con Docker
+
+### Construir la imagen
+
+```bash
+docker build -t sa-integral .
+```
+
+### Ejecutar el contenedor
+
+```bash
+docker run -p 80:80 sa-integral
+```
+
+### Abrir en el navegador
+
+```
+http://localhost
+```
+
+---
+
+# ☁️ Despliegue en Render
+
+El proyecto está preparado para ejecutarse como un **Web Service** utilizando Docker.
+
+## Pasos
+
+1. Crear un nuevo **Web Service** en Render.
+2. Conectar este repositorio.
+3. Render detectará automáticamente el archivo `Dockerfile`.
+4. Crear un **Persistent Disk**.
+5. Configurar el punto de montaje:
+
+```text
+/var/www/html/admin/storage
+```
+
+Esto permitirá conservar la base de datos SQLite y los archivos del sistema incluso después de reiniciar el servicio.
+
+---
+
+# ⚙️ Archivos Principales
+
+| Archivo | Función |
+|----------|---------|
+| Dockerfile | Construcción del contenedor Docker |
+| .htaccess | Configuración del servidor Apache |
+| .gitignore | Exclusión de archivos para Git |
+| CHANGELOG.md | Historial de versiones |
+| SECURITY.md | Políticas de seguridad |
+| LICENSE | Licencia del proyecto |
+
+---
+
+# 📁 Persistencia de Datos
+
+El sistema utiliza **SQLite** como motor de base de datos, por lo que la carpeta:
+
+```text
+storage/
+```
+
+debe almacenarse en un disco persistente para evitar la pérdida de información durante reinicios o nuevos despliegues.
+
+---
+
+# 👥 Equipo de Desarrollo
+
+Proyecto desarrollado por:
+
+- **Anderson Benonits Urrutia Moreyra**
+- **Equipo colaborador**
+
+**Universidad Tecnológica del Perú**
+
+---
+
+# 📄 Licencia
+
+Este proyecto se distribuye bajo la licencia especificada en el archivo **LICENSE**.
+
+---
+
+# 📌 Estado del Proyecto
+
+🟢 **Activo y en mantenimiento**

@@ -1,0 +1,22 @@
+# 1. Evitar que se listen carpetas
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # 2. Si el archivo solicitado existe físicamente, cargarlo normal
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 3. REDIRECCIÓN SEGURA: Redirigir a index.html todo lo que no exista...
+    # 🔥 EXCEPTO si la URL comienza con "/admin" (Protegemos el panel de Cockpit)
+    RewriteCond %{REQUEST_URI} !^/admin [NC]
+    # Quitamos el R=301 para que Angular pueda leer la ruta correctamente
+    RewriteRule ^(.*)$ /index.html [L] 
+</IfModule>
+
+# 4. Asegurar que el archivo principal sea index.html
+DirectoryIndex index.html index.php
+AddHandler application/x-httpd-php83 .php .php5 .php4 .php3

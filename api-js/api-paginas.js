@@ -3,7 +3,7 @@
 // =================================================================
 
 const apiKey = "API-bc88843a8a9f0c7258973169923702426d06620b";
-const urlServer = "http://localhost:8000";
+const urlServer = "https://proyecto-sa-integral-s-a-c-2.onrender.com/admin";
 
 // -----------------------------------------
 // 0. CONFIGURACIÓN GLOBAL (Navbar, Footer, Redes)

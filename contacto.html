@@ -4,36 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SOLUCIONES Y ACABADOS INTEGRAL S.A.C.</title>
-    
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-
-    <link href="css/estilos.css?v=2.2" rel="stylesheet">
+    <link href="css/estilos.css?v=2.3" rel="stylesheet">
 </head>
 
 <body class="is-loading">
-
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
+    <div class="preloader"><div class="spinner"></div></div>
 
     <nav class="navbar navbar-expand-xl fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="upload/info/logo.png" alt="Logotipo principal de SA Soluciones, líderes en ingeniería y mantenimiento industrial" height="50">
+                <img src="upload/info/logo.png" id="dyn-logo-header" height="50">
             </a>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
-            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
                 <div class="offcanvas-header border-bottom">
-                    <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel" style="color: var(--primary-color);">MENÚ</h5>
-                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <h5 class="offcanvas-title fw-bold" style="color: var(--primary-color);">MENÚ</h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav ms-auto align-items-center">
@@ -45,9 +38,7 @@
                         <li class="nav-item"><a class="nav-link" href="clientes.html">Clientes</a></li>
                         <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                         <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
-                        <li class="nav-item ms-3">
-                            <a href="unete.html" class="btn btn-cotizar">ÚNETE AHORA</a>
-                        </li>
+                        <li class="nav-item ms-3"><a href="unete.html" class="btn btn-cotizar">ÚNETE AHORA</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,7 +47,7 @@
 
     <header class="page-header header-contacto">
         <div class="container">
-            <h1 id="pageTitle" class="display-4 fw-bold" style="visibility: hidden;">CONTÁCTENOS</h1>
+            <h1 id="pageTitle" class="display-4 fw-bold" style="visibility: hidden;">Cargando...</h1>
             <nav aria-label="breadcrumb">
                 <ol id="pageBreadcrumb" class="breadcrumb breadcrumb-custom justify-content-center" style="visibility: hidden;">
                     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
@@ -73,32 +64,21 @@
                     <div class="contact-card">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <h5 class="contact-title">Ubicación</h5>
-                        <p class="contact-text">
-                            <strong>Sede 1:</strong> P.J. San Hilarión N5 L1A, SJL.<br>
-                            <strong>Sede 2:</strong> Pasaje Julio Cesar Tello 145 SJL.
-                        </p>
+                        <p class="contact-text" id="dyn-tarjeta-ubi">Cargando...</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="contact-card">
                         <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                         <h5 class="contact-title">Llámanos</h5>
-                        <p class="contact-text">
-                            (01) 244-48947<br>
-                            994 266 394<br>
-                            908 806 975
-                        </p>
+                        <p class="contact-text" id="dyn-tarjeta-tel">Cargando...</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="contact-card">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <h5 class="contact-title">Escríbenos</h5>
-                        <p class="contact-text" style="font-size: 0.85rem; word-break: break-all;">
-                            administracion@syainsac.com<br>
-                            soluciones_acabados@hotmail.com<br>
-                            proyectos@syainsac.com<br>
-                        </p>
+                        <p class="contact-text" id="dyn-tarjeta-cor" style="font-size: 0.85rem; word-break: break-all;">Cargando...</p>
                     </div>
                 </div>
             </div>
@@ -109,50 +89,38 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h5 class="text-uppercase" style="color: var(--accent-color); font-weight: 700;">Soporte</h5>
-                    <h2 class="mb-4 text-dark fw-bold">PREGUNTAS FRECUENTES</h2>
+                    <h5 id="dyn-faq-sub" class="text-uppercase" style="color: var(--accent-color); font-weight: 700;">Cargando...</h5>
+                    <h2 id="dyn-faq-tit" class="mb-4 text-dark fw-bold">Cargando...</h2>
                 
                     <div class="accordion accordion-flush bg-white rounded shadow-sm" id="faqAccordion">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                    ¿Qué necesito para solicitar una visita técnica?
-                                </button>
+                            <h2 class="accordion-header">
+                                <button id="dyn-faq1-p" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">Cargando...</button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted small">
-                                    Es indispensable contar con una orden de servicio confirmada. Nuestro equipo de operaciones coordinará la visita según la disponibilidad y el tipo de servicio requerido.
-                                </div>
+                                <div id="dyn-faq1-r" class="accordion-body text-muted small">Cargando...</div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                    ¿Cuál es la vigencia de una cotización?
-                                </button>
+                            <h2 class="accordion-header">
+                                <button id="dyn-faq2-p" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Cargando...</button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted small">
-                                    Las cotizaciones emitidas por nuestro equipo técnico tienen una validez de 30 días calendario a partir de la fecha de emisión.
-                                </div>
+                                <div id="dyn-faq2-r" class="accordion-body text-muted small">Cargando...</div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                    ¿Realizan trabajos fuera de Lima?
-                                </button>
+                            <h2 class="accordion-header">
+                                <button id="dyn-faq3-p" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">Cargando...</button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted small">
-                                    Sí, en Soluciones y Acabados Integral S.A.C. brindamos atención a nivel nacional. Los costos por traslado y viáticos se incluyen de forma detallada en cada propuesta, según la ubicación del proyecto.
-                                </div>
+                                <div id="dyn-faq3-r" class="accordion-body text-muted small">Cargando...</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 ps-lg-5">
-                    <img src="images/fondo_preguntas.jpg" class="img-fluid rounded-3 shadow" alt="Equipo técnico de Soluciones y Acabados Integral S.A.C. revisando planos de obra">
+                    <img id="dyn-faq-img" src="images/fondo_preguntas.jpg" class="img-fluid rounded-3 shadow" alt="Equipo técnico">
                 </div>
             </div>
         </div>
@@ -163,8 +131,8 @@
             <div class="row g-4">
                 <div class="col-lg-5">
                     <div class="p-4 p-md-5 bg-white rounded shadow h-100 border">
-                        <h3 class="fw-bold mb-2">Envíanos un Mensaje</h3>
-                        <p class="text-muted mb-4 small">Complete el formulario y nos pondremos en contacto a la brevedad.</p>
+                        <h3 id="dyn-form-tit" class="fw-bold mb-2">Cargando...</h3>
+                        <p id="dyn-form-sub" class="text-muted mb-4 small">Cargando...</p>
                         
                         <form id="form-contacto">
                             <div class="mb-3">
@@ -185,21 +153,14 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="d-flex flex-column flex-sm-row gap-2 mb-3 align-items-center">
-                        <span class="text-muted fw-bold small text-nowrap">
-                            <i class="fas fa-map-marked-alt text-warning"></i> VER SEDE:
-                        </span>
-
+                        <span id="dyn-mapa-tit" class="text-muted fw-bold small text-nowrap d-none d-sm-block">Cargando...</span>
                         <div class="d-flex gap-2 w-100">
-                            <button class="btn btn-cotizar btn-sm btn-mapa fw-bold" onclick="cambiarMapa(1, this)">
-                                Sede 1: San Hilarión
-                            </button>
-                            <button class="btn btn-outline-secondary btn-sm btn-mapa fw-bold" onclick="cambiarMapa(2, this)">
-                                Sede 2: Julio C. Tello
-                            </button>
+                            <button id="dyn-mapa-btn1" class="btn btn-cotizar btn-sm btn-mapa fw-bold">Cargando...</button>
+                            <button id="dyn-mapa-btn2" class="btn btn-outline-secondary btn-sm btn-mapa fw-bold">Cargando...</button>
                         </div>
                     </div>
                     <div class="map-container">
-                        <iframe id="mapa-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1951.32930823429!2d-77.01788357651292!3d-11.998107394793347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf1d644b55f5%3A0xd8eb3f906e6eab1b!2sSoluciones%20y%20Acabados%20Integral%20SAC!5e0!3m2!1ses-419!2spe!4v1769698334240!5m2!1ses-419!2spe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe id="mapa-frame" src="" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -209,66 +170,41 @@
     <footer>
         <div class="container">
             <div class="row align-items-center">
-                
                 <div class="col-lg-4 mb-4 mb-lg-0 text-center text-lg-start">
-                    <img src="upload/footer/logo footer.png" alt="Logo de Soluciones y Acabados Integral SAC en versión blanca" class="footer-logo-img">
+                    <img id="dyn-logo-footer" src="upload/footer/logo footer.png" class="footer-logo-img">
                     <p class="mb-0 small opacity-50 mt-2">
-                        © 2026 Soluciones y Acabados Integral S.A.C.<br>
-                        R.U.C.: 20492148041
-                        | Desarrollado por 
-                        <a href="https://bustinzasystem.netlify.app/" target="_blank" class="text-reset text-decoration-none fw-bold">
-                            Bustinza System
-                        </a>
+                        <span id="dyn-copyright">© 2026 Soluciones y Acabados Integral S.A.C.<br>R.U.C.: 20492148041</span>
+                        | Desarrollado por <a href="https://bustinzasystem.netlify.app/" target="_blank" class="text-reset text-decoration-none fw-bold">Bustinza System</a>
                     </p>
                 </div>
-
                 <div class="col-lg-5 mb-4 mb-lg-0">
                     <ul class="footer-contact-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>P.J. San Hilarión MZA N5 Lote 1A, S.J.L., Lima.<br>
-                            Pasaje Julio Cesar Tello 145 SJL.
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <span>994 266 394 &nbsp;|&nbsp; 908 806 975 &nbsp;|&nbsp; (01) 244-48947</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>administracion@syainsac.com<br>
-                            soluciones_acabados@hotmail.com<br>
-                            proyectos@syainsac.com</span>
-                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="dyn-direccion">Cargando...</span></li>
+                        <li><i class="fas fa-phone-alt"></i> <span id="dyn-telefonos">Cargando...</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="dyn-correos">Cargando...</span></li>
                     </ul>
                 </div>
-
                 <div class="col-lg-3 text-center text-lg-end">
-                    <img src="upload/footer/siguir footer.png" alt="Insignia Ariba Network" class="footer-ariba-img mb-2">
-                    
+                    <img src="upload/footer/siguir footer.png" id="dyn-logo-seguir" alt="Socio certificado Ariba Network" class="footer-ariba-img mb-2">
                     <div class="footer-social mt-2">
-                        <a href="https://www.facebook.com/share/1CWUcQuJUZ/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/company/soluciones-y-acabados-integral-sac" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/solucionesyacabadosintegral/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a id="dyn-fb" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a id="dyn-in" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a id="dyn-ig" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/51908806975?text=Hola,%20me%20interesa%20cotizar%20un%20servicio." class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a id="dyn-whatsapp" href="#" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    <script src="js/main.js"></script>
-    <script src="js/email.js"></script>
-    <script src="js/mapa.js"></script>
-
+    <script src="js/main.js?v=2.3"></script>
+    <script src="js/email.js?v=2.3"></script>
+    
+    <script src="api-js/api-paginas.js?v=2.3"></script>
 </body>
 </html>

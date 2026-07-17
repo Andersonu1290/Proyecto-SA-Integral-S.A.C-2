@@ -12,27 +12,24 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 
-    <link href="css/estilos.css?v=2.1" rel="stylesheet">
-
+    <link href="css/estilos.css?v=2.3" rel="stylesheet">
 </head>
 <body class="is-loading">
 
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
+    <div class="preloader"><div class="spinner"></div></div>
 
     <nav class="navbar navbar-expand-xl fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="upload/info/logo.png" alt="SA Soluciones" height="50">
+                <img src="upload/info/logo.png" id="dyn-logo-header" height="50">
             </a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
                 <div class="offcanvas-header border-bottom">
-                    <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel" style="color: var(--primary-color);">MENÚ</h5>
-                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <h5 class="offcanvas-title fw-bold" style="color: var(--primary-color);">MENÚ</h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav ms-auto align-items-center">
@@ -44,9 +41,7 @@
                         <li class="nav-item"><a class="nav-link" href="clientes.html">Clientes</a></li>
                         <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                        <li class="nav-item ms-3">
-                            <a href="unete.html" class="btn btn-cotizar">ÚNETE AHORA</a>
-                        </li>
+                        <li class="nav-item ms-3"><a href="unete.html" class="btn btn-cotizar">ÚNETE AHORA</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +50,7 @@
 
     <header class="page-header header-galeria">
         <div class="container">
-            <h1 id="pageTitle" class="display-4 fw-bold text-uppercase mb-3" style="visibility: hidden;">Galería Multimedia</h1>
+            <h1 id="pageTitle" class="display-4 fw-bold text-uppercase mb-3" style="visibility: hidden;">Cargando...</h1>
             <nav aria-label="breadcrumb">
                 <ol id="pageBreadcrumb" class="breadcrumb breadcrumb-custom justify-content-center" style="visibility: hidden;">
                     <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
@@ -69,11 +64,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h5 class="text-uppercase" style="color: var(--accent-color); font-weight: 700;">Vida Corporativa</h5>
-                    <h2 class="mb-3 text-dark fw-bold">NUESTROS RECUERDOS</h2>
-                    <p class="text-muted lead">
-                        Instantáneas y recuerdos de la familia SA Soluciones. Momentos que construyen nuestra historia y cultura corporativa.
-                    </p>
+                    <h5 id="dyn-gal-sub" class="text-uppercase" style="color: var(--accent-color); font-weight: 700;">Cargando...</h5>
+                    <h2 id="dyn-gal-tit" class="mb-3 text-dark fw-bold">Cargando...</h2>
+                    <p id="dyn-gal-desc" class="text-muted lead">Cargando datos...</p>
                 </div>
             </div>
         </div>
@@ -81,25 +74,7 @@
 
     <section class="py-5 mb-5 flex-grow-1">
         <div class="container">
-            <div class="row g-4">
-                
-                <div class="col-md-6 col-lg-4">
-                    <div class="card service-card h-100">
-                        <div class="img-container">
-                            <span class="gallery-date">DIC 2025</span>
-                            <img src="upload/portada/slider3.jpg?v=2" alt="Sesión de capacitación técnica especializada en manejo de polímeros y fibra de vidrio">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Capacitación Técnica FRP</h5>
-                            <p class="card-text small text-muted mt-2">Jornada de actualización técnica para nuestros ingenieros en nuevas tecnologías de polímeros.</p>
-                            
-                            <a href="#" class="btn-link-custom" data-bs-toggle="modal" data-bs-target="#modalAlbumCapacitacion">
-                                Ver Álbum <i class="fas fa-camera ms-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="row g-4" id="galeria-cards-container">
                 </div>
         </div>
     </section>
@@ -107,111 +82,42 @@
     <footer>
         <div class="container">
             <div class="row align-items-center">
-                
                 <div class="col-lg-4 mb-4 mb-lg-0 text-center text-lg-start">
-                    <img src="upload/footer/logo footer.png" alt="Logo corporativo blanco SA Soluciones" class="footer-logo-img">
+                    <img id="dyn-logo-footer" src="upload/footer/logo footer.png" class="footer-logo-img">
                     <p class="mb-0 small opacity-50 mt-2">
-                        © 2026 Soluciones y Acabados Integral S.A.C.<br>
-                        R.U.C.: 20492148041
-                        | Desarrollado por 
-                        <a href="https://bustinzasystem.netlify.app/" target="_blank" class="text-reset text-decoration-none fw-bold">
-                            Bustinza System
-                        </a>
+                        <span id="dyn-copyright">© 2026 Soluciones y Acabados Integral S.A.C.<br>R.U.C.: 20492148041</span>
+                        | Desarrollado por <a href="https://bustinzasystem.netlify.app/" target="_blank" class="text-reset text-decoration-none fw-bold">Bustinza System</a>
                     </p>
                 </div>
-
                 <div class="col-lg-5 mb-4 mb-lg-0">
                     <ul class="footer-contact-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>P.J. San Hilarión MZA N5 Lote 1A, S.J.L., Lima</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <span>994 266 394 &nbsp;|&nbsp; 908 806 975 &nbsp;|&nbsp; (01) 286-5212</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>administracion@syainsac.com<br>
-                            soluciones_acabados@hotmail.com<br>
-                            soluciones.acabados.saisac@gmail.com</span>
-                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="dyn-direccion">Cargando...</span></li>
+                        <li><i class="fas fa-phone-alt"></i> <span id="dyn-telefonos">Cargando...</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="dyn-correos">Cargando...</span></li>
                     </ul>
                 </div>
-
                 <div class="col-lg-3 text-center text-lg-end">
-                    <img src="upload/footer/siguir footer.png" alt="Badge de socio Ariba Network" class="footer-ariba-img mb-2">
-                    
+                    <img src="upload/footer/siguir footer.png" alt="Insignia Ariba Network" class="footer-ariba-img mb-2">
                     <div class="footer-social mt-2">
-                        <a href="https://www.facebook.com/share/1CWUcQuJUZ/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/company/soluciones-y-acabados-integral-sac" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/solucionesyacabadosintegral/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a id="dyn-fb" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a id="dyn-in" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a id="dyn-ig" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/51908806975?text=Hola,%20me%20interesa%20cotizar%20un%20servicio." class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a id="dyn-whatsapp" href="#" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <div class="modal fade" id="modalAlbumCapacitacion" tabindex="-1" aria-labelledby="modalAlbumLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg"> 
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold text-dark" id="modalAlbumLabel">Galería: Capacitación Técnica FRP</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0">
-                    
-                    <div id="carouselCapacitacion" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselCapacitacion" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselCapacitacion" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselCapacitacion" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            <button type="button" data-bs-target="#carouselCapacitacion" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                            <button type="button" data-bs-target="#carouselCapacitacion" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                        </div>
-                        
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="upload/galeria/Capacitación/capacitación 2.jpeg" class="d-block carousel-album-img" alt="Capacitación 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="upload/galeria/Capacitación/capacitación de personal.jpeg" class="d-block carousel-album-img" alt="Capacitación de personal">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="upload/galeria/Capacitación/capacitacion interna.jpeg" class="d-block carousel-album-img" alt="Capacitación interna">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="upload/galeria/Capacitación/foto grupal.jpeg" class="d-block carousel-album-img" alt="Foto grupal">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="upload/galeria/Capacitación/personal en grupojpeg.jpg" class="d-block carousel-album-img" alt="Personal en grupo">
-                            </div>
-                        </div>
-                        
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCapacitacion" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselCapacitacion" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="galeria-modals-container"></div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <script src="js/main.js"></script>
-    <script src="js/zoom-interactivo.js"></script>
+    <script src="js/main.js?v=2.3"></script>
+    <script src="js/zoom-interactivo.js?v=2.3"></script>
+    <script src="api-js/api-paginas.js?v=2.3"></script>
 
 </body>
 </html>

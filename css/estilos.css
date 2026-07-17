@@ -12,7 +12,7 @@
 
 /* --- FIX FOOTER: Aseguramos que el cuerpo ocupe toda la altura --- */
 html {
-    height: 100%;
+    min-height: 100%; height: auto;
 }
 
 body { 
@@ -92,6 +92,17 @@ h1, h2, h3, h4, h5, h6, .nav-link, .btn { font-family: 'Kanit', sans-serif; }
 
 /* Menú Móvil */
 @media (max-width: 1199px) {
+
+    /* 1. REDUCE EL GROSOR DE LA BARRA SUPERIOR */
+    .navbar {
+        padding: 8px 0 !important; /* Reduce el espacio arriba y abajo a la mitad */
+    }
+
+    /* Opcional: Si tienes un logo muy alto, esto también ayuda a que la barra se haga más delgada */
+    .navbar-brand img {
+        max-height: 40px !important; /* Ajusta este valor al tamaño de tu logo */
+    }
+
     .offcanvas {
         width: 85% !important; max-width: 85% !important; height: 100dvh !important; 
         background-color: #ffffff !important; border-left: 5px solid var(--accent-color);
@@ -1233,3 +1244,207 @@ body.is-loading {
     }
 }
 
+/* =========================================
+   MEJORA PARA CART DE PROYECTOS
+   ========================================= */
+/* 1. Fondo Oscuro Principal (Fuera del panel) */
+.modal-backdrop.show {
+    opacity: 0.95 !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    background-color: rgba(5, 5, 5, 0.95) !important;
+}
+/* 2. Contenedor del Modal (El Panel Grande) */
+.premium-modal .modal-content {
+    background-color: #000000; /* Fondo negro puro para fundirse con las fotos */
+    border: none;
+    border-radius: 12px; /* Bordes un poco menos redondeados, más corporativo */
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+    color: #f8fafc;
+}
+/* 3. Botón Cerrar (X) - BLANCO PURO Y GIRO ORIGINAL */
+.premium-modal .modal-header {
+    position: absolute;
+    top: 0; right: 0;
+    z-index: 9999;
+    border: none;
+    padding: 1.5rem;
+    background: transparent !important;
+}
+        
+
+.premium-modal .btn-close {
+    background-color: transparent !important; 
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") !important;
+    opacity: 1 !important; /* X blanca original pura y visible */
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    padding: 1.2rem;
+    width: 1em;
+    height: 1em;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); /* Sombra para que se vea sobre fondos blancos */
+}
+        
+
+.premium-modal .btn-close:focus, 
+.premium-modal .btn-close:active {
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+}
+        
+
+.premium-modal .btn-close:hover {
+    opacity: 1;
+    transform: rotate(90deg) scale(1.2); /* GIRO ORIGINAL QUE TE GUSTA */
+    background-color: transparent !important; 
+}
+/* 4. Área del Carrusel (Sin bloques azules) */
+.premium-carousel {
+    height: 100%;
+    background-color: #000000; 
+}
+.premium-carousel .carousel-inner {
+    height: 100%;
+    display: flex;
+    align-items: center; 
+}
+.premium-carousel .carousel-item {
+    background-color: #000000;
+}
+.premium-carousel .carousel-item img {
+    height: 75vh;
+    min-height: 450px;
+    object-fit: contain; 
+    width: 100%;
+}
+/* 5. Flechas Direccionales - Pegadas a los lados y limpias */
+.premium-arrow {
+    width: 12%; 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    background: transparent !important; 
+    border: none;
+}
+.premium-carousel:hover .premium-arrow {
+    opacity: 1;
+}
+        
+
+.premium-arrow-left { 
+    justify-content: flex-start; 
+    padding-left: 2rem; 
+}
+.premium-arrow-right { 
+    justify-content: flex-end; 
+    padding-right: 2rem; 
+}
+.premium-arrow i {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease, color 0.3s ease;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8)); 
+}
+        
+
+.premium-arrow:hover i {
+    transform: scale(1.3);
+    color: #ffffff; 
+}
+/* 6. Panel de Información (Lado Derecho) - Limpio y Oscuro */
+.premium-modal-info {
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background-color: #111827; 
+}
+.premium-client {
+    color: var(--accent-color);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+.premium-client i {
+    margin-right: 8px;
+}
+.premium-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: #ffffff;
+}
+.premium-desc {
+    font-size: 1.05rem;
+    color: #9ca3af; 
+    line-height: 1.7;
+    font-weight: 300;
+}
+/* NUEVO: Botón "VER PROYECTO" compacto solo para estas tarjetas */
+.project-overlay .btn-cotizar {
+    background: var(--accent-color);
+    color: white !important;
+    border: none;
+    padding: 10px 20px;   /* más compacto */
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 16px;      /* usa px en vez de rem */
+    display: inline-block; /* quita el 100% */
+    width: auto;           /* que no ocupe todo */
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+    transition: all 0.3s ease;
+}
+/* 7. Responsivo (Se activa temprano para soportar el Zoom 150%) */
+@media (max-width: 1199px) {
+    .premium-carousel .carousel-item img { height: 40vh; min-height: 300px; }
+    .premium-modal-info { padding: 2.5rem 1.5rem; }
+    .premium-title { font-size: 1.6rem; }
+    .premium-arrow { opacity: 1; width: 15%; } 
+    .premium-arrow i { font-size: 2rem; }
+    .premium-arrow-left { padding-left: 1rem; }
+    .premium-arrow-right { padding-right: 1rem; }
+}
+/* FIX: IGUALAR ALTURA DE TARJETAS (Evita que la línea naranja flote en títulos cortos) */
+.project-card {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+.project-card .card-body {
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+/* PARA COPYRIGHT */
+#dyn-copyright p {
+    display: inline; /* Quita el salto de línea del <p> que viene de Cockpit */
+    margin: 0;
+}
+
+#dyn-copyright {
+    display: inline; /* Asegura que el contenedor también sea en línea */
+}
+
+/* botones de fotter movibles solo en zoom de 125% y 150% */
+@media screen and (min-resolution: 1.51dppx) and (max-resolution: 2.00dppx) {
+    
+    /* REEMPLAZA ESTO POR LA CLASE EXACTA DE TU BOTÓN DE WHATSAPP */
+
+    .footer-ariba-img {
+        transform: translateX(-65px) !important; /* Si también quieres mover la imagen de izquierda */
+    }
+    .footer-social {
+        transform: translateX(-65px) !important; /* Si quieres mover los íconos sociales hacia la derecha */
+    }
+    
+}

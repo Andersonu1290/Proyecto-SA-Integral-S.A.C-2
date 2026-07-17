@@ -1,8 +1,8 @@
 /* ARCHIVO: js/main.js
-   FUNCIÓN: Preloader Inteligente (Carga Real + Tiempo Límite de Seguridad)
+   FUNCIÓN: Preloader Inteligente y Animaciones de Entrada
 */
 
-// 1. Definimos la función que quita el preloader
+// 1. Definimos la función que quita el preloader (AHORA SERÁ CONTROLADA POR LA API)
 function ocultarPreloader() {
     const preloader = document.querySelector('.preloader');
     const pageTitle = document.getElementById('pageTitle');
@@ -30,14 +30,3 @@ function ocultarPreloader() {
         setTimeout(() => { preloader.style.display = 'none'; }, 400); 
     }
 }
-
-// 2. CASO IDEAL: Esperamos a que carguen todas las FOTOS y scripts (Carga Real)
-window.addEventListener('load', function() {
-    // Le damos un pequeño respiro de 0.5s para que sea suave
-    setTimeout(ocultarPreloader, 500);
-});
-
-// 3. PLAN B (SEGURIDAD): Si pasaron 8 segundos y no ha cargado (internet lento), abrimos igual.
-setTimeout(function() {
-    ocultarPreloader();
-}, 8000); // 8000 milisegundos = 8 segundos máximo de espera
